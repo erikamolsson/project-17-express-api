@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import animals from "./data/animals.json"
+import animals from "./data/animals.json";
 
 
 
