@@ -9,6 +9,7 @@ import animals from "./data/animals.json"
 // PORT=9000 npm start
 const port = process.env.PORT || 9000;
 const app = express();
+const expressListEndpoints = require("express-list-endpoints");
 
 // Add middlewares to enable cors and json body parsing
 app.use(cors());
@@ -16,7 +17,11 @@ app.use(express.json());
 
 // Start "page"
 app.get("/", (req, res) => {
-  res.send("The animals of the world!");
+  const endpoints = expressListEndpoints(app);
+  res.json({
+    message: "The animals of the world!",
+    endpoints: endpoints
+  });
 });
 
 // Get alla animals from array
